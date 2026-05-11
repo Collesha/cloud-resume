@@ -10,55 +10,82 @@
     <div class="container">
         <header>
             <h1>COLLESHA MIGHTY</h1>
-            <p class="contact-info">
-                Oviedo, FL • 754-457-8175 • 
-                <a href="mailto:c.mighty21@gmail.com">c.mighty21@gmail.com</a><br>
-                <a href="YOUR_LINKEDIN_URL">LinkedIn</a> • 
-                <a href="YOUR_GITHUB_URL">GitHub</a>
-            </p>
+            <div class="contact-info">
+                <span>Oviedo, FL</span> | <span>754-457-8175</span> | 
+                <a href="mailto:c.mighty21@gmail.com">c.mighty21@gmail.com</a>
+                <div class="social-links">
+                     <a href="https://www.linkedin.com/in/collesha-mighty-482b72227/">LinkedIn</a> • <a href="https://github.com/collesha">GitHub</a>
+            </div>
+        </div>
         </header>
 
         <section id="objective">
-            <h2>Objective</h2>
-            <p>Motivated Computer Science student seeking to apply programming, problem-solving, and analytical skills to contribute to the development of innovative bionic and accessibility technology. Passionate about leveraging technology to empower individuals.</p>
+            <h2>Professional Summary</h2>
+            <p>Software Engineer with a focus on scalable cloud infrastructure and full-stack development.
+                 Strong mathematical foundation leveraged to optimize backend logic and data-driven systems.</p> 
         </section>
 
         <section id="education">
             <h2>Education</h2>
             <div class="entry">
-                <h3>University of Central Florida</h3>
-                <p>Bachelor of Science in Computer Science | GPA: 3.7 | <em>Anticipated Fall 2026</em></p>
+                <div class="entry-header">
+                    <h3>B.S. in Computer Science | Mathematics Minor</h3>
+                <span>Dec 2026</span>
+            </div>
+            <p><strong>University of Central Florida</strong> | GPA: 3.7</p>
+                <p class="coursework"><strong>Relevant Coursework:</strong> Machine Learning, AI, Mobile App Development, UX/UI Design, 
+                    Data Structures (C/Java), Security in Computing, Discrete Structures, Processes of Object-Oriented Software Development.</p>
             </div>
         </section>
 
         <section id="skills">
             <h2>Technical Skills</h2>
+            <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Programming:</strong> C, Python, Java, JavaScript, PHP
+            </div>
+            <div class="skill-category">
+                <strong>Cloud & Infrastructure:</strong> AWS (S3, CloudFront, IAM), Git, Linux/Unix
+            </div>
+            <div class="skill-category">
+                <strong>Frameworks & Data:</strong> MERN Stack, Scikit-Learn, SQL/NoSQL
+            </div>
+        </div>
+        </section>
+
+<section id="projects">
+        <h2>Technical Projects</h2>
+
+        <div class="entry">
+            <h3>Serverless Cloud Portfolio | <span class="tech-stack">AWS, Python, GitHub Actions</span></h3>
+            <p>Engineered a high-availability personal platform utilizing <strong>AWS S3</strong> and <strong>CloudFront</strong> for global content delivery. Developed a serverless analytics backend using <strong>Python (Lambda)</strong> and <strong>DynamoDB</strong> to process real-time visitor data.</p>
+        </div>
+
+        <div class="entry">
+            <h3>ParcelPantry: Household Logistics Engine | <span class="tech-stack">MERN Stack (MongoDB, Express, React, Node)</span></h3>
+            <p>Architected a full-stack household management system focused on inventory synchronization.
             <ul>
-                <li><strong>Languages:</strong> C, Python, Java, JavaScript, PHP</li>
-                <li><strong>Machine Learning:</strong> Scikit-Learn, Logistic Regression, Data Preprocessing</li>
-                <li><strong>Cloud & Tools:</strong> AWS (In Progress), GitHub, Linux/Unix, Jira, Figma</li>
+                <li>Developed dynamic user-linking logic to connect disparate accounts to shared data clusters.</li>
+                <li>Implemented secure authentication flows and email verification protocols.</li>
+                <li>Optimized state management to handle real-time inventory updates across communal users.</li>
             </ul>
-        </section>
+            </p>
+        </div>
 
-        <section id="projects">
-            <h2>Technical Projects</h2>
-            <div class="entry">
-                <h3>Cloud Resume Challenge (AWS)</h3>
-                <p>Building a serverless resume website using S3, CloudFront, Lambda, and DynamoDB. (Currently in progress!)</p>
-            </div>
-            <div class="entry">
-                <h3>Minesweeper Mobile Application</h3>
-                <p>Developed a mobile game implementing recursive tile revealing algorithms and grid-based logic.</p>
-            </div>
-            <div class="entry">
-                <h3>Machine Learning Model Implementation</h3>
-                <p>Implemented logistic regression models using Python and Scikit-Learn for performance evaluation.</p>
-            </div>
-        </section>
+        <div class="entry">
+            <h3>Automated Contact Management System | <span class="tech-stack">LAMP Stack / JavaScript</span></h3>
+            <p>Designed and deployed a CRUD-based data management tool. Focused on <strong>Object-Oriented Programming</strong> to ensure modularity and ease of integration in team-based environments.</p>
+        </div>
 
-        <footer>
-            <p>This page has been viewed <span id="counter">loading...</span> times.</p>
-        </footer>
-    </div>
+        <div class="entry">
+            <h3>Machine Learning Model Development | <span class="tech-stack">Python, Scikit-Learn</span></h3>
+            <p>Constructed and validated logistic regression models for predictive analysis. Leveraged statistical feature analysis to improve model accuracy and data preprocessing efficiency.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Infrastructure: AWS (S3/CloudFront) | CI/CD: GitHub Actions | Total Visits: <span id="counter">loading...</span></p>
+    </footer>
+</div>
 </body>
 </html>
