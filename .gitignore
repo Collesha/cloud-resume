@@ -1,0 +1,41 @@
+# MacOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon\r
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows system files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs and Text Editors
+.vscode/
+.idea/
+*.suo
+*.swp
+*.swo
+
+# Dependency directories
+node_modules/
+.npm
+
+# Local Environment Secrets & Configuration
+.env
+.env.local
+*.pem
+*.key
+credentials.json
+aws_credentials
+.aws/
+
+# Logs and runtime files
+*.log
+npm-debug.log*
+yarn-debug.log*
