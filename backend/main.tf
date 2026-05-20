@@ -64,3 +64,50 @@ resource "aws_lambda_function" "visitor_counter" {
   runtime          = "python3.12"
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 }
+# 5. HTTP API Gateway Definition
+resource "aws_apigatewayv2_api" "http_api" {
+  name          = "cloud-resume-api-tf"
+  protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["https://collesha.xyz"] # Restricts access to your domain cleanly!
+    allow_methods = ["GET", "OPTIONS"]
+    allow_headers = ["content-type"]
+  }
+}
+
+# API Gateway Integration to Lambda
+resource "aws_apigatewayv2_integration" "lambda_integration" {
+  api_id           = aws_apigatewayv2_api.http_api.id
+  integration_type = "AWS_PROXY"
+  integration_uri  = aws_lambda_function.visitor_counter.arn
+}
+
+# API Gateway Route configuration (/get-count)
+resource "aws_apigatewayv2_route" "api_route" {
+  api_id    = aws_apigatewayv2_api.http_api.id
+  route_key = "GET /get-count"
+  target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
+}
+
+# Automatic Deployment Stage ($default)
+resource "aws_apigatewayv2_stage" "api_stage" {
+  api_id      = aws_apigatewayv2_api.http_api.id
+  name        = "$default"
+  auto_deploy = true
+}
+
+# Grant permission for API Gateway to invoke your Lambda function
+resource "aws_lambda_permission" "api_gateway_permission" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.visitor_counter.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.http_api.execution_arn}/*/*"
+}
+
+# Output the new Invoke URL directly to your terminal screen when done!
+output "api_gateway_url" {
+  value       = "${aws_apigatewayv2_api.http_api.api_endpoint}/get-count"
+  description = "The live endpoint URL for your frontend JavaScript"
+}
