@@ -1,0 +1,32 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main  # Triggers the code deployment every time you push to main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS Credentials via OIDC
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::592931547468:role/github-actions-cdn-deployer  
+        aws-region: us-east-2  #  S3 bucket's region
+        audience: sts.amazonaws.com
+
+    - name: Deploy to S3
+      run: |
+        aws s3 sync . s3://collesha-mighty-resume --delete --exclude ".github/*" --exclude ".git/*"
+
+    - name: Invalidate CloudFront Cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id E2EXOHLBN4MBVI --paths "/*"
