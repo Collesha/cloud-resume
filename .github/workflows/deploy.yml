@@ -25,8 +25,7 @@ jobs:
 
     - name: Deploy to S3
       run: |
-        aws s3 sync . s3://collesha-mighty-resume --delete --exclude ".github/*" --exclude ".git/*"
-
+        aws s3 sync frontend/ s3://YOUR_S3_BUCKET_NAME --delete --exclude ".github/*" --exclude ".git/*"
     - name: Invalidate CloudFront Cache
       run: |
         aws cloudfront create-invalidation --distribution-id E2EXOHLBN4MBVI --paths "/*"
