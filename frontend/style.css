@@ -116,3 +116,14 @@ footer {
     margin-top: 5px;
     font-size: 0.9rem;
 }
+
+#certifications h4 {
+    margin: 5px 0 3px 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #2d3436;
+}
+
+#certifications .entry {
+    margin-bottom: 6px;
+}
